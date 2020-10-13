@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public class Hacker : MonoBehaviour{
 	//Game Config data
-	string menhint = "you may type 'menu' at any time to go to menu.";
+	string menhint = "you may type 'menu' at any time.";
 	string[] l1={"health", "apple", "water", "life", "care"};
 	string[] l2={"justice","federal","investigation","computerhack"};
 	string[] l3={"hiddenheadquarters","government-espionage","intelligence","cybersecurity"};
@@ -61,7 +61,8 @@ public class Hacker : MonoBehaviour{
 		currentScreen = Screen.Pass;
 		Terminal.ClearScreen();
 		setpass();
-		Terminal.WriteLine("enter your password, hint:" + Password.Anagram());
+		Terminal.WriteLine("enter password, hint:");
+		Terminal.WriteLine(Password.Anagram());
 		Terminal.WriteLine(menhint);
 	}
 
@@ -90,7 +91,7 @@ public class Hacker : MonoBehaviour{
 	void Winner(){
 		currentScreen = Screen.Win;
 		Terminal.ClearScreen();
-		Terminal.WriteLine("You Got it! You Hacked into level "+ level+"!");
+		Terminal.WriteLine("You Got it! You Hacked into lvl."+level+"!");
 		ShowReward();
 	}
 	void ShowReward(){
@@ -108,7 +109,27 @@ public class Hacker : MonoBehaviour{
 "				);
 				break;
 			case 2:
-				Terminal.WriteLine("FBI");
+				Terminal.WriteLine("You have been apprehended");
+				Terminal.WriteLine(@"
+ _    .----.       .----.
+( )  //--\  \.---./  /--\\
+ T  ((    ) @)   (@ (    ))
+ |   \\__/  /'---'\  \__//
+ |E   '----' cuffs '----'
+ 				");
+				break;
+			case 3:
+				Terminal.WriteLine("YOU WERE CAUGHT! TREASON!");
+				Terminal.WriteLine(@"
+________
+||\  /||
+|| \/ ||
+||	  ||
+||(  )||
+==@==@==
+
+
+				");
 				break;
 			default:
 				Terminal.WriteLine(menhint);
